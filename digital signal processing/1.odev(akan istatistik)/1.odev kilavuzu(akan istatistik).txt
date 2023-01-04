@@ -1,0 +1,19 @@
+Öncelikle verilen ödevde akan istatistik için standart ve ortalama sapmalar(fonksiyon isimlerine ai eklendi) ve normal olarak ortalama ve standart sapma hesabı(klasik tüm veri birden) yapıldı.
+
+Kodun çalışması şu şekildedir:
+
+Bir seçmeli ders olduğunu farzedelim ve bu dersi maksimum 50,minimum 40 kişi alabiliyor.Sınav sonuçlarına göre sapmalar hesaplanmak isteniyor.Fakat kaç adet sınav sonucu geleceği belirsiz.(sınava girmeyen öğrenci olabilir(vize'nin telafisi,finalin bütünlemesi olduğu göz önüne alınırsa bu gayet olağan bir şey)
+
+40 ila 50 arası random bir değer adedinde sınav notları var.Sınav sonuçları da 1 ile 100 arasında yine random olarak "notlar.txt" adlı dosyaya yazılıyor(alt alta).
+Dosyamız,main cpp nin olduğu yere otomatik oluşturulacaktır.
+
+Daha sonra bu notları tutmak için dinamik bir dizi açıyoruz(notlar isminde) ve boyutu random olan not_sayisi kadardır.
+
+Notları aktardığımız bu diziyi sapma fonksiyonlarına gönderip,formülleri dizi verilerine uygulayıp istediğimiz sonuçları almayı hedefliyoruz.
+
+
+2 adet main dosyamız var zorunlu olan ismindeki kod dosyası akan istatistik ödevi,zorunlu olmayan ise sizin isterseniz yapın dediğiniz klasik standart sapma ve ortalama sapma hesabı yapan kod dosyasıdır.
+
+Akan istatistik ödevini çalıştırırken nadiren de olsa tüm değerlerin 0 çıktığı oluyor.Fakat kapatıp tekrar run yaptığımızda düzeliyor.
+
+Oğuzhan Topal

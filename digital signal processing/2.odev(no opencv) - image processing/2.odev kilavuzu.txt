@@ -1,0 +1,47 @@
+Ödevde öncelikle opencv'yi kullandım.
+
+Kod öncelikle graylevel olmayan resmi("picture.jpg",kendi fotografimi kullanmak istedim) kullanicinin istedigi boyuta ayarliyor(ornegin 200x220 degerlerini girdim)
+Sonra o resmi graylevel hale getiriyor
+
+Piksel degerlerini tutmak icin pixels adlı bir matris(200x220)
+Piksel degerlerinin tekrar sayilarini tutmak icin repeated alı bir dizi(256 adet renk degeri oldugu icin 256 elemanli)
+Histogram ciziminde kullanmak icin repeated ali diziyi 16'sar olarak gruplayip ve
+gruptaki eleman degerlerinin toplamini tek bir elemaninda tutan 16 elemanli hist_array dizisi tanımlanmıştır.
+
+Bu matris ve 2 adet dizi dinamik olarak tanımlanmıştır.
+
+Bir veri kumesinin ortalamasi aslinda veriler toplami/veri sayisidir
+
+Histogram kullanarak bunu nasıl ifade edebiliriz? Şu şekilde:
+
+Histogramdaki(repeated adlı dizideki)tüm elemanların toplamı bize aslında toplam örnek sayısını yani N'i verir(paydayı bulduk)
+
+Histogramdaki(repeated adlı dizideki)tüm elemanların sırayla kendi index'leriyle çarpımlarının toplamı ise bize veri kumesindeki elemanlarin toplamini verir(payı bulduk)
+
+dolayısıyla bu işlemleri fonksiyonda tanımlayıp ortalamayı döndürmek yeterli olacaktır.Bu yüzden fonksiyona repeated adlı diziyi ve boyutu olan repeated_size=256'yı yolladım.Yollanan fonksiyonda (int *rp,int boyut) seklinde alias aldılar.
+
+
+Varyans ise ((((index-ortalama)^2)*Hi)/N-1)
+Hi'ler=repeated dizisindeki elemanlar!
+buradaki N-1 ise zaten üstte bulduğumuz N'in 1 eksiğidir.
+Fonksiyona aynı ortalamadaki gibi repeated ve repeated_size yollanmıştır.
+Alias olarak (int *rp,int boyut)
+
+Standart sapma ise varyans'ın kareköküdür.
+
+Önemli NOT:Ortalama ve varyans bulurken histogram degerlerinin 16'sar olarak gruplanmis halini tutan hist_array adli diziyi kullanmak yanlis sonuclar verir.(Cizim haric asla gruplanmis diziyi matematiksel islem iceren bir fonksiyona yollamayin,yollayacaksaniz orjinal halini yollayin!)
+
+Cizim icin ise repeated adlı diziyi 16'sar olarak gruplanmis sekilde tutan 16 elemanli hist_array adli diziyi yolladım.
+Grafigi * karakterli kullanarak olusturdum fakat gruplanmis dizi olan hist_array dizisi 3000'li 4000'li degerler tuttugu icin asil yildiz sayisinin(her yildiz 100 degerinde olacak sekilde) %1'i kadarini ekrana bastirdim.
+
+
+
+Aslında kod performansını iyileştirmek açısından şöyle yapılabilirdi:
+
+Varyans bulurken ortalamayi kullaniyoruz.Varyans fonksiyonunda ortalama fonksiyonunun gövdesinin aynı şekilde tanımlanması
+yerine ortalama fonksiyonunu varyans fonksiyonuna argüman olarak verip direkt onu formulde kullanmak yoluna gidebilirdim.(Aslında denedim, fakat işin içinden çıkamadım hatalar aldım ve vazgeçtim)
+
+Saygılarımla...(Kod run edilirken ufak gecikme yaşıyor 3-4 saniyede sonucu veriyor)
+
+Amy Lee
+
